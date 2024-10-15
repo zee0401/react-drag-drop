@@ -22,15 +22,17 @@ export default function DragAndDrop({ initialState }) {
   const handleDrop = (e, targetContainer) => {
     const item = dragItem.current;
     const sourceContainer = dragContainer.current;
-    setData((prev) => {
-      const newData = { ...prev };
+    setData((prevData) => {
+      const newData = { ...prevData };
       newData[sourceContainer] = newData[sourceContainer].filter(
         (i) => i !== item
       );
       newData[targetContainer] = [...newData[targetContainer], item];
+      setData(newData);
       return newData;
     });
   };
+
   return (
     <div style={{ display: "flex", justifyContent: "space-around" }}>
       {Object.keys(data).map((container, index) => {
