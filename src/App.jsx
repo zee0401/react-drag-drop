@@ -1,5 +1,4 @@
 import DragAndDrop from "./components/DragAndDrop";
-import "./styles.css";
 const initialData = {
   Todo: [
     "Design UI mockups",
